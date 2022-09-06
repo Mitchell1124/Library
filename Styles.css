@@ -28,13 +28,45 @@ main {
     align-items: center;
 }
 
-main button {
+.add-btn{
     width: 120px;
     height: 40px;
     font-size: 1.2rem;
     background-color: cornflowerblue;
     border: none;
     border-radius: 5px;
-    margin-top: 50px;;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.book {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    margin: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.book p {
+    padding: 10px 10px 0 15px;
+}
+
+.read-btn {
+    background-color: lightgreen;
+    opacity: 70%;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin: 15px;
+    font-weight: bold;
+    cursor: pointer;    
+}
+
+.read-btn:hover {
+    opacity: 100%;
 }
 
