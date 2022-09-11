@@ -28,3 +28,16 @@ function Book() {
 function addBookToLibrary() {
 
 }
+
+function showForm() {
+    document.getElementById('popup').style.display = 'block';
+}
+
+function hideForm() {
+    document.getElementById('popup').style.display = 'none';
+}
+
+function test() {
+    alert('works')
+}
+
