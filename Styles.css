@@ -53,6 +53,7 @@ main {
     margin: 10px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .book p {
@@ -72,7 +73,24 @@ main {
     cursor: pointer;    
 }
 
+.not-read {
+    background-color: red;
+    opacity: 70%;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .read-btn:hover {
+    opacity: 100%;
+}
+
+.not-read:hover {
     opacity: 100%;
 }
 

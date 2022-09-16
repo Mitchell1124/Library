@@ -19,13 +19,55 @@
     //to facilitate this you will want to create the function that toggles
     //a books read status on your Book prototpe instance
 
+
 var myLibrary = []
 
-function Book() {
 
+//takes the user input and adds it to the myLibrary array
+function Book() {
+    //gets user input and creates an object 
+    var bookInfo = {
+        "title": document.getElementById('title').value,
+        "author": document.getElementById('author').value,
+        "pages": document.getElementById('pages').value
+    }
+    
+    //pushs the user input bookInfo object to the myLibrary array
+    myLibrary.push(bookInfo);
+
+    console.log(myLibrary)
+
+    //resets the user input fileds so that they are blank
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+    document.getElementById('pages').value = '';
 }
 
 function addBookToLibrary() {
+
+    for(i = 0; i < myLibrary.length; i++) {
+        
+        var element = document.createElement("div")
+        element.className = "book"
+
+        var titleElement = element.appendChild(document.createElement('h1'))
+        titleElement.className = "title"
+        titleElement.innerHTML = myLibrary[i].title
+
+        var authorElement = element.appendChild(document.createElement('p'))
+        authorElement.className = "author"
+        authorElement.innerHTML = myLibrary[i].author
+
+        var pagesElement = element.appendChild(document.createElement('p'))
+        pagesElement.className = "pages"
+        pagesElement.innerHTML = myLibrary[i].pages + " pages"
+    
+        var readBtn = element.appendChild(document.createElement('button'))
+        readBtn.className = "not-read"
+        readBtn.innerHTML = "Not Read"
+
+        document.getElementById('bookList').appendChild(element)
+    }
 
 }
 
@@ -37,7 +79,27 @@ function hideForm() {
     document.getElementById('popup').style.display = 'none';
 }
 
-function test() {
-    alert('works')
-}
+// function test() {
+//     var element = document.createElement("div")
+//     element.className = "book"
+
+//     var titleElement = element.appendChild(document.createElement('h1'))
+//     titleElement.className = "title"
+//     titleElement.innerHTML = myLibrary[0].title
+
+//     var authorElement = element.appendChild(document.createElement('p'))
+//     authorElement.className = "author"
+//     authorElement.innerHTML = myLibrary[0].author
+
+//     var pagesElement = element.appendChild(document.createElement('p'))
+//     pagesElement.className = "pages"
+//     pagesElement.innerHTML = myLibrary[0].pages + " pages"
+    
+//     var readBtn = element.appendChild(document.createElement('button'))
+//     readBtn.className = "not-read"
+//     readBtn.innerHTML = "Not Read"
+
+//     document.getElementById('bookList').appendChild(element)
+// }
+
 
