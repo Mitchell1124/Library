@@ -22,16 +22,29 @@
 
 var myLibrary = []
 
+function Book(title, author, pages) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+}
+
+//changes the display of the add book form to block styling
+function showForm() {
+    document.getElementById('popup').style.display = 'block';
+}
+//changes the display of the add book form to none to "hide" it from view
+function hideForm() {
+    document.getElementById('popup').style.display = 'none';
+}
 
 //takes the user input and adds it to the myLibrary array
-function Book() {
+function getUserInput() {
     //gets user input and creates an object 
     var bookInfo = {
         "title": document.getElementById('title').value,
         "author": document.getElementById('author').value,
         "pages": document.getElementById('pages').value
     }
-    
     //pushs the user input bookInfo object to the myLibrary array
     myLibrary.push(bookInfo);
 
@@ -43,41 +56,38 @@ function Book() {
     document.getElementById('pages').value = '';
 }
 
-function addBookToLibrary() {
+function renderOutput(Book) {
+    var element = document.createElement("div")
+    element.className = "book"
 
-    for(i = 0; i < myLibrary.length; i++) {
-        
-        var element = document.createElement("div")
-        element.className = "book"
-
-        var titleElement = element.appendChild(document.createElement('h1'))
-        titleElement.className = "title"
-        titleElement.innerHTML = myLibrary[i].title
-
-        var authorElement = element.appendChild(document.createElement('p'))
-        authorElement.className = "author"
-        authorElement.innerHTML = myLibrary[i].author
-
-        var pagesElement = element.appendChild(document.createElement('p'))
-        pagesElement.className = "pages"
-        pagesElement.innerHTML = myLibrary[i].pages + " pages"
     
-        var readBtn = element.appendChild(document.createElement('button'))
-        readBtn.className = "not-read"
-        readBtn.innerHTML = "Not Read"
+}   
 
-        document.getElementById('bookList').appendChild(element)
-    }
 
-}
 
-function showForm() {
-    document.getElementById('popup').style.display = 'block';
-}
 
-function hideForm() {
-    document.getElementById('popup').style.display = 'none';
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function test() {
 //     var element = document.createElement("div")
