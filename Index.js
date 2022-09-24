@@ -37,79 +37,36 @@ function hideForm() {
     document.getElementById('popup').style.display = 'none';
 }
 
-//takes the user input and adds it to the myLibrary array
-function getUserInput() {
-    //gets user input and creates an object 
-    var bookInfo = {
-        "title": document.getElementById('title').value,
-        "author": document.getElementById('author').value,
-        "pages": document.getElementById('pages').value
-    }
-    //pushs the user input bookInfo object to the myLibrary array
-    myLibrary.push(bookInfo);
-
-    console.log(myLibrary)
-
-    //resets the user input fileds so that they are blank
-    document.getElementById('title').value = '';
-    document.getElementById('author').value = '';
-    document.getElementById('pages').value = '';
+//function for adding a new book to the myLibrary array
+function addBookToLibrary(title, author, pages) {
+    let book = new Book(title, author, pages)
+    myLibrary.push(book)
 }
 
-function renderOutput(Book) {
-    var element = document.createElement("div")
-    element.className = "book"
+//function to display the books on the page
+function displayBooks() {
+    const books = document.querySelector('.book-list');
 
-    
-}   
+    //loops over the array and displays the cards
+    myLibrary.forEach(myLibrary => {
+        const card = document.createElement('div');
+        card.className = 'book';
+        books.appendChild(card);
+        for(let key in myLibrary) {
+            console.log(`${key}: ${myLibrary[key]}`);
+            const para = document.createElement('p')
+            para.textContent = (`${myLibrary[key]}`);
+            card.appendChild(para);
+        }
+        var readBtn = card.appendChild(document.createElement('button'))
+        readBtn.className = "not-read"
+        readBtn.innerHTML = "Not Read"
+        })
+}
 
+addBookToLibrary("A Game of Thrones", "George R.R. Martin", "694");
+addBookToLibrary("A Clash of Kings", "George R.R. Martin", "792");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function test() {
-//     var element = document.createElement("div")
-//     element.className = "book"
-
-//     var titleElement = element.appendChild(document.createElement('h1'))
-//     titleElement.className = "title"
-//     titleElement.innerHTML = myLibrary[0].title
-
-//     var authorElement = element.appendChild(document.createElement('p'))
-//     authorElement.className = "author"
-//     authorElement.innerHTML = myLibrary[0].author
-
-//     var pagesElement = element.appendChild(document.createElement('p'))
-//     pagesElement.className = "pages"
-//     pagesElement.innerHTML = myLibrary[0].pages + " pages"
-    
-//     var readBtn = element.appendChild(document.createElement('button'))
-//     readBtn.className = "not-read"
-//     readBtn.innerHTML = "Not Read"
-
-//     document.getElementById('bookList').appendChild(element)
-// }
+displayBooks();
 
 
